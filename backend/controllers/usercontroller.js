@@ -1,4 +1,4 @@
-const User = require('../models/userModel');
+const User = require('../models/usermodel');
 
 module.exports = {
   getAllUsers: async (req, res) => {
@@ -12,15 +12,15 @@ module.exports = {
   },
 
   addUser: async (req, res) => {
-    const userData = req.body; 
-    console.log(userData)
+    const {name,email, phone,website,city,company} = req.body; 
+   
     try {
-      const existingUser = await User.findOne({ email: userData.email });
+      const existingUser = await User.findOne({ email });
       if (existingUser) {
         return res.status(400).json({ error: 'User already exists' });
       }
       
-      const newUser = new User(userData);
+      const newUser = new User(name,email,phone,website,city,company);
       console.log(userData)
    
       await newUser.save();

@@ -1,8 +1,8 @@
 const axios = require('axios');
 const excel = require('exceljs');
 const fs = require('fs');
-const Post = require('../models/postModel');
-const User = require('../models/userModel');
+// const Post = require('../models/postModel');
+const User = require('../models/usermodel');
 
 
 
